@@ -1,5 +1,6 @@
 package com.engsoft.marmita.service;
 
+import com.engsoft.marmita.exceptions.NegocioException;
 import com.engsoft.marmita.model.User;
 import com.engsoft.marmita.model.UserDTO;
 import com.engsoft.marmita.repository.UserRepository;
@@ -17,19 +18,19 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User save(UserDTO user) {
-            Optional<User> user1 = userRepository.findByUsername(user.getUsername());
-        if (!userRepository.existsByUsername(user.getUsername())) {
+    public User save(UserDTO userDTO) {
+        Optional<User> user = userRepository.findByUsername(userDTO.getUsername());
+        if(user.isPresent()){
+            throw new NegocioException("Nome de usuario já existente");
+        }else {
             User newUser = new User();
-            newUser.setName(user.getName());
-            newUser.setUsername(user.getUsername());
-            newUser.setPassword(Utils.hashPassword(user.getPassword()));
-            newUser.addRole(user.getRole());
+            newUser.setName(userDTO.getName());
+            newUser.setUsername(userDTO.getUsername());
+            newUser.setPassword(Utils.hashPassword(userDTO.getPassword()));
+            newUser.addRole(userDTO.getRole());
             newUser.setActive(true);
             return userRepository.save(newUser);
         }
-
-        throw null;
     }
 
     public User findByUsername(String username) {

@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/{username}")
-    public ResponseEntity<User> findById(@PathVariable String username) {
+    public ResponseEntity<User> findByUserName(@PathVariable String username) {
         return ResponseEntity.ok(userService.findByUsername(username));
     }
 }
