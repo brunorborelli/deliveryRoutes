@@ -28,6 +28,12 @@ public class User {
 
     private String name;
 
+    private String cpf;
+
+    private String email;
+
+    private String telefone;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "ENG_ROLE", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "role_id")
