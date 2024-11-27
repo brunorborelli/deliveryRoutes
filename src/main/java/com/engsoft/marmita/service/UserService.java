@@ -29,6 +29,8 @@ public class UserService {
             newUser.setPassword(Utils.hashPassword(userDTO.getPassword()));
             newUser.addRole(userDTO.getRole());
             newUser.setActive(true);
+            newUser.setCpf(userDTO.getCpf());
+            newUser.setEmail(userDTO.getEmail());
             return userRepository.save(newUser);
         }
     }

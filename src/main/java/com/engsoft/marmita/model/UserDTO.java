@@ -17,4 +17,8 @@ public class UserDTO {
     private String role;
 
     private boolean active;
+
+    private String cpf;
+
+    private String email;
 }
