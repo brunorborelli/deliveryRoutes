@@ -14,8 +14,6 @@ public class DeliveryPoint {
     private String pagamento; // string concatenada do valor + forma de pagamento
     private String obs; //obs da entrega, diferente da obs do pedido
     private String address;
-    @JsonIgnore
     private double latitude;
-    @JsonIgnore
     private double longitude;
 }
