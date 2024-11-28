@@ -14,6 +14,7 @@ public class PedidoMapper {
                 pedido.getId(),
                 pedido.getNomeCliente(),
                 pedido.getCpf(),
+                pedido.getTelefone(),
                 pedido.getEnderecoCompleto(),
                 pedido.getRua(),
                 pedido.getNumero(),
@@ -40,6 +41,7 @@ public class PedidoMapper {
         pedido.setId(pedidoDTO.getId());
         pedido.setNomeCliente(pedidoDTO.getNomeCliente());
         pedido.setCpf(pedidoDTO.getCpf());
+        pedido.setTelefone(pedidoDTO.getTelefone());
         pedido.setEnderecoCompleto(pedidoDTO.getEnderecoCompleto());
         pedido.setRua(pedidoDTO.getRua());
         pedido.setNumero(pedidoDTO.getNumero());

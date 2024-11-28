@@ -25,6 +25,9 @@ public class Pedido {
     @Column(nullable = false, length = 14)
     private String cpf;
 
+    @Column(length = 20)
+    private String telefone;
+
     @Column(length = 255)
     private String enderecoCompleto;
 

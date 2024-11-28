@@ -17,7 +17,7 @@ public class CorsConfig {
         config.setAllowCredentials(true);
         config.setAllowedOrigins(Arrays.asList(
                 "http://localhost:4200",
-                "https://deliveryroutesbackend.up.railway.app/"
+                "https://deliveryroutesbackend.up.railway.app"
         ));
         config.addAllowedHeader("*");
         config.addAllowedMethod("OPTIONS");

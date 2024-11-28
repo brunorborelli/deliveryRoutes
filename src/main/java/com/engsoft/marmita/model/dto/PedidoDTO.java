@@ -11,6 +11,7 @@ public class PedidoDTO {
     private Long id;
     private String nomeCliente;
     private String cpf;
+    private String telefone;
     private String enderecoCompleto;
     private String rua;
     private String numero;
