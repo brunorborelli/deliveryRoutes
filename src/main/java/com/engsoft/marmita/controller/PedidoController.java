@@ -1,6 +1,5 @@
 package com.engsoft.marmita.controller;
 
-import com.engsoft.marmita.exceptions.NegocioException;
 import com.engsoft.marmita.model.Pedido;
 import com.engsoft.marmita.model.dto.PedidoDTO;
 import com.engsoft.marmita.service.PedidoService;
@@ -25,12 +24,8 @@ public class PedidoController {
 
     @PostMapping
     public ResponseEntity<Pedido> registrarPedido(@RequestBody PedidoDTO dto) {
-        try {
             Pedido pedidoRegistrado = pedidoService.registrarPedido(dto);
             return new ResponseEntity<>(pedidoRegistrado, HttpStatus.CREATED);
-        } catch (NegocioException e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
     }
 
     @GetMapping
@@ -40,11 +35,8 @@ public class PedidoController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<Pedido> getPedidoById(@PathVariable Long id) {
-        try {
             Pedido pedido = pedidoService.getPedidoById(id);
             return new ResponseEntity<>(pedido, HttpStatus.OK);
-        } catch (NegocioException e) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        }
+
     }
 }

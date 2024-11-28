@@ -29,7 +29,9 @@ public class PedidoMapper {
                 pedido.getPagamento() != null ? pedido.getPagamento().name() : null,
                 pedido.getTroco(),
                 pedido.getValorTotal(),
-                pedido.getQuantidade()
+                pedido.getQuantidade(),
+                pedido.getLatitute(),
+                pedido.getLongitude()
         );
     }
 
@@ -55,6 +57,8 @@ public class PedidoMapper {
         pedido.setValorTotal(pedidoDTO.getValorTotal());
         pedido.setDatahora(LocalDateTime.now());
         pedido.setQuantidade(pedidoDTO.getQuantidade());
+        pedido.setLatitute(pedidoDTO.getLatitute());
+        pedido.setLongitude(pedidoDTO.getLongitude());
         return pedido;
     }
 }
