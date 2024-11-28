@@ -27,6 +27,6 @@ public class PedidoDTO {
     private Double troco;
     private Double valorTotal;
     private Integer quantidade;
-    private Double latitute;
+    private Double latitude;
     private Double Longitude;
 }
