@@ -31,7 +31,7 @@ public class PedidoMapper {
                 pedido.getTroco(),
                 pedido.getValorTotal(),
                 pedido.getQuantidade(),
-                pedido.getLatitute(),
+                pedido.getLatitude(),
                 pedido.getLongitude()
         );
     }
@@ -59,7 +59,7 @@ public class PedidoMapper {
         pedido.setValorTotal(pedidoDTO.getValorTotal());
         pedido.setDatahora(LocalDateTime.now());
         pedido.setQuantidade(pedidoDTO.getQuantidade());
-        pedido.setLatitute(pedidoDTO.getLatitute());
+        pedido.setLatitude(pedidoDTO.getLatitude());
         pedido.setLongitude(pedidoDTO.getLongitude());
         return pedido;
     }

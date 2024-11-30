@@ -82,8 +82,8 @@ public class Pedido {
     private Integer quantidade;
 
     @Column(nullable = false)
-    private Double latitute;
+    private Double latitude;
 
     @Column(nullable = false)
-    private Double Longitude;
+    private Double longitude;
 }

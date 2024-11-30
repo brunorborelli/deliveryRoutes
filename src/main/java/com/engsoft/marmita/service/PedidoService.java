@@ -61,9 +61,6 @@ public class PedidoService {
         if (dto.getPagamento() == null || dto.getPagamento().isEmpty()) {
             throw new NegocioException("Forma de pagamento é obrigatória.");
         }
-        if (dto.getMarmitaId() == null) {
-            throw new NegocioException("O tipo de Marmita é obrigatória.");
-        }
     }
 
     private static final List<String> CIDADES_REGIAO_METROPOLITANA = Arrays.asList(
@@ -75,7 +72,7 @@ public class PedidoService {
         if (!CIDADES_REGIAO_METROPOLITANA.contains(dto.getCidade())) {
             throw new NegocioException("A cidade deve ser uma da Região Metropolitana de Goiânia ou Goiânia.");
         }
-        if (!"GO".equalsIgnoreCase(dto.getEstado())) {
+        if (!"Goiás".equalsIgnoreCase(dto.getEstado())) {
             throw new NegocioException("O estado deve ser GO.");
         }
         if (!"Brasil".equalsIgnoreCase(dto.getPais())) {
