@@ -3,6 +3,7 @@ package com.engsoft.marmita.service;
 import com.engsoft.marmita.exceptions.NegocioException;
 import com.engsoft.marmita.exceptions.ObjetoNaoEncontradoException;
 import com.engsoft.marmita.mapper.PedidoMapper;
+import com.engsoft.marmita.model.Pagamento;
 import com.engsoft.marmita.model.Pedido;
 import com.engsoft.marmita.model.dto.PedidoDTO;
 import com.engsoft.marmita.repository.PedidoRepository;
@@ -31,6 +32,13 @@ public class PedidoService {
         validarLocalizacao(dto);
         validarCamposObrigatorios(dto);
         return pedidoRepository.save(PedidoMapper.toEntity(dto));
+    }
+
+    public Pedido atualizarPedido(Long id, PedidoDTO dto) {
+        Pedido pedidoExistente = pedidoRepository.findById(id)
+                .orElseThrow(() -> new ObjetoNaoEncontradoException("Pedido não encontrado com o id: " + id));
+        atualizarCampos(pedidoExistente, dto);
+        return pedidoRepository.save(pedidoExistente);
     }
 
     private void validarCamposObrigatorios(PedidoDTO dto) {
@@ -78,6 +86,28 @@ public class PedidoService {
         if (!"Brasil".equalsIgnoreCase(dto.getPais())) {
             throw new NegocioException("O país deve ser Brasil.");
         }
+    }
+
+    private void atualizarCampos(Pedido pedidoExistente, PedidoDTO dto) {
+        pedidoExistente.setNomeCliente(dto.getNomeCliente());
+        pedidoExistente.setCpf(dto.getCpf());
+        pedidoExistente.setTelefone(dto.getTelefone());
+        pedidoExistente.setEnderecoCompleto(dto.getEnderecoCompleto());
+        pedidoExistente.setRua(dto.getRua());
+        pedidoExistente.setNumero(dto.getNumero());
+        pedidoExistente.setComplemento(dto.getComplemento());
+        pedidoExistente.setReferencia(dto.getReferencia());
+        pedidoExistente.setCep(dto.getCep());
+        pedidoExistente.setCidade(dto.getCidade());
+        pedidoExistente.setEstado(dto.getEstado());
+        pedidoExistente.setPais(dto.getPais());
+        pedidoExistente.setObs(dto.getObs());
+        pedidoExistente.setPagamento(Pagamento.valueOf(dto.getPagamento().toUpperCase()));
+        pedidoExistente.setTroco(dto.getTroco());
+        pedidoExistente.setValorTotal(dto.getValorTotal());
+        pedidoExistente.setQuantidade(dto.getQuantidade());
+        pedidoExistente.setLatitude(dto.getLatitude());
+        pedidoExistente.setLongitude(dto.getLongitude());
     }
 
 }

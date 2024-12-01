@@ -6,12 +6,7 @@ import com.engsoft.marmita.service.PedidoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +21,12 @@ public class PedidoController {
     public ResponseEntity<Pedido> registrarPedido(@RequestBody PedidoDTO dto) {
             Pedido pedidoRegistrado = pedidoService.registrarPedido(dto);
             return new ResponseEntity<>(pedidoRegistrado, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Pedido> atualizarPedido(@PathVariable Long id, @RequestBody PedidoDTO dto) {
+        Pedido pedidoAtualizado = pedidoService.atualizarPedido(id, dto);
+        return new ResponseEntity<>(pedidoAtualizado, HttpStatus.OK);
     }
 
     @GetMapping
