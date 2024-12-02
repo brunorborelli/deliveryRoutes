@@ -85,10 +85,11 @@ public class DeliveryService {
     public void generateGoogleMapsLinks(List<DeliveryPoint> points) {
         for (int i = 1; i < points.size(); i++) {
             DeliveryPoint point = points.get(i);
-            String mapLink = String.format("https://www.google.com/maps?q=%f,%f",
-                    point.getLatitude(),
-                    point.getLongitude());
-            point.setRotaMsg(mapLink);
+            StringBuilder message = new StringBuilder();
+            message
+                    .append("Link do Google Maps: https://www.google.com/maps?q=")
+                    .append(point.getLatitude()).append(",").append(point.getLongitude()).append("\n");
+            point.setRotaMsg(String.valueOf(message));
         }
     }
 
