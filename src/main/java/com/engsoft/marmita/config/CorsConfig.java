@@ -14,7 +14,7 @@ public class CorsConfig {
     public CorsFilter corsFilter(){
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false);
         config.setAllowedOrigins(Arrays.asList("*"));
         config.addAllowedHeader("*");
         config.addAllowedMethod("OPTIONS");
@@ -22,8 +22,8 @@ public class CorsConfig {
         config.addAllowedMethod("POST");
         config.addAllowedMethod("PUT");
         config.addAllowedMethod("DELETE");
-        //source.registerCorsConfiguration("/**",config);
-        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+        source.registerCorsConfiguration("/**",config);
+        //source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
         return new CorsFilter(source);
     }
 
