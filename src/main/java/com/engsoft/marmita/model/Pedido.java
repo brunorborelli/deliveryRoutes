@@ -25,6 +25,9 @@ public class Pedido {
     @Column(nullable = false, length = 14)
     private String cpf;
 
+    @Column(length = 20)
+    private String telefone;
+
     @Column(length = 255)
     private String enderecoCompleto;
 
@@ -79,8 +82,8 @@ public class Pedido {
     private Integer quantidade;
 
     @Column(nullable = false)
-    private Double latitute;
+    private Double latitude;
 
     @Column(nullable = false)
-    private Double Longitude;
+    private Double longitude;
 }

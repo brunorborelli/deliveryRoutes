@@ -11,6 +11,7 @@ public class PedidoDTO {
     private Long id;
     private String nomeCliente;
     private String cpf;
+    private String telefone;
     private String enderecoCompleto;
     private String rua;
     private String numero;
@@ -28,5 +29,5 @@ public class PedidoDTO {
     private Double valorTotal;
     private Integer quantidade;
     private Double latitude;
-    private Double Longitude;
+    private Double longitude;
 }

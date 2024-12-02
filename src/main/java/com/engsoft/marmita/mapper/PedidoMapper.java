@@ -14,6 +14,7 @@ public class PedidoMapper {
                 pedido.getId(),
                 pedido.getNomeCliente(),
                 pedido.getCpf(),
+                pedido.getTelefone(),
                 pedido.getEnderecoCompleto(),
                 pedido.getRua(),
                 pedido.getNumero(),
@@ -30,7 +31,7 @@ public class PedidoMapper {
                 pedido.getTroco(),
                 pedido.getValorTotal(),
                 pedido.getQuantidade(),
-                pedido.getLatitute(),
+                pedido.getLatitude(),
                 pedido.getLongitude()
         );
     }
@@ -40,6 +41,7 @@ public class PedidoMapper {
         pedido.setId(pedidoDTO.getId());
         pedido.setNomeCliente(pedidoDTO.getNomeCliente());
         pedido.setCpf(pedidoDTO.getCpf());
+        pedido.setTelefone(pedidoDTO.getTelefone());
         pedido.setEnderecoCompleto(pedidoDTO.getEnderecoCompleto());
         pedido.setRua(pedidoDTO.getRua());
         pedido.setNumero(pedidoDTO.getNumero());
@@ -57,7 +59,7 @@ public class PedidoMapper {
         pedido.setValorTotal(pedidoDTO.getValorTotal());
         pedido.setDatahora(LocalDateTime.now());
         pedido.setQuantidade(pedidoDTO.getQuantidade());
-        pedido.setLatitute(pedidoDTO.getLatitude());
+        pedido.setLatitude(pedidoDTO.getLatitude());
         pedido.setLongitude(pedidoDTO.getLongitude());
         return pedido;
     }
