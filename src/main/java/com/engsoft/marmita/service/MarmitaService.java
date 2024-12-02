@@ -3,24 +3,26 @@ package com.engsoft.marmita.service;
 import com.engsoft.marmita.exceptions.ObjetoNaoEncontradoException;
 import com.engsoft.marmita.model.Marmita;
 import com.engsoft.marmita.repository.MarmitaRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class MarmitaService {
 
     private final MarmitaRepository marmitaRepository;
 
-    public List<Marmita> getAll() {
+    @Autowired
+    public MarmitaService(MarmitaRepository marmitaRepository) {
+        this.marmitaRepository = marmitaRepository;
+    }
+
+    public List<Marmita> listarTodas() {
         return marmitaRepository.findAll();
     }
-
-    public Marmita getById(Long id) {
+    public Marmita buscarPorId(Long id) {
         return marmitaRepository.findById(id)
-                .orElseThrow(() -> new ObjetoNaoEncontradoException("Não foi encontrada uma marmita com o ID " + id));
+                .orElseThrow(() -> new ObjetoNaoEncontradoException("Marmita não encontrada!"));
     }
-
 }
