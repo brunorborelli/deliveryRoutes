@@ -87,7 +87,7 @@ public class DeliveryService {
             DeliveryPoint point = points.get(i);
             StringBuilder message = new StringBuilder();
             message
-                    .append("Link do Google Maps: https://www.google.com/maps?q=")
+                    .append("https://www.google.com/maps?q=")
                     .append(point.getLatitude()).append(",").append(point.getLongitude()).append("\n");
             point.setRotaMsg(String.valueOf(message));
         }
