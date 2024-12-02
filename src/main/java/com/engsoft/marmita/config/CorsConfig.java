@@ -22,7 +22,8 @@ public class CorsConfig {
         config.addAllowedMethod("POST");
         config.addAllowedMethod("PUT");
         config.addAllowedMethod("DELETE");
-        source.registerCorsConfiguration("/**",config);
+        //source.registerCorsConfiguration("/**",config);
+        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
         return new CorsFilter(source);
     }
 
