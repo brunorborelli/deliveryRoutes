@@ -16,4 +16,5 @@ public class DeliveryPoint {
     private String address;
     private double latitude;
     private double longitude;
+    private String rotaMsg;
 }

@@ -81,4 +81,15 @@ public class DeliveryService {
             Collections.swap(points, i, index);
         }
     }
+
+    public void generateGoogleMapsLinks(List<DeliveryPoint> points) {
+        for (int i = 1; i < points.size(); i++) {
+            DeliveryPoint point = points.get(i);
+            String mapLink = String.format("https://www.google.com/maps?q=%f,%f",
+                    point.getLatitude(),
+                    point.getLongitude());
+            point.setRotaMsg(mapLink);
+        }
+    }
+
 }
