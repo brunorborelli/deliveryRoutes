@@ -88,7 +88,7 @@ public class DeliveryService {
             StringBuilder message = new StringBuilder();
             message
                     .append("https://www.google.com/maps?q=")
-                    .append(point.getLatitude()).append(",").append(point.getLongitude()).append("\n");
+                    .append(point.getLatitude()).append(",").append(point.getLongitude()).append("");
             point.setRotaMsg(String.valueOf(message));
         }
     }
