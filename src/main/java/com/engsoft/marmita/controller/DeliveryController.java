@@ -23,8 +23,8 @@ public class DeliveryController {
 
     @PostMapping("/route")
     public DeliveryRoute getRoute(@RequestBody List<DeliveryPoint> points) {
-        DeliveryRoute route = deliveryService.calculateBestRoute(points);
-        deliveryService.generateGoogleMapsLinks(route.getPoints());
+        DeliveryRoute route = deliveryService.calcularMelhorRota(points);
+        deliveryService.gerarLinksGoogleMaps(route.getPoints());
         return route;
     }
 
@@ -38,6 +38,6 @@ public class DeliveryController {
         testPoints.add(new DeliveryPoint(null, null, null, null,"Brasília", -15.7801, -47.9292,""));
         testPoints.add(new DeliveryPoint(null, null, null, null,"Goiânia", -16.6868491, -49.2707899,""));
 
-        return deliveryService.calculateBestRoute(testPoints);
+        return deliveryService.calcularMelhorRota(testPoints);
     }
 }
